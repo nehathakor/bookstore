@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EpicReads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="output.css" rel="stylesheet">
+    <style>
+        p{
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+
+        h3{
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h2{
+            font-family: 'Poppins', sans-serif;
+        }
+        h1,
+        a {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="bg-rose-600 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Left-aligned brand name -->
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold text-gray-100">EpicReads</a>
+                </div>
+                <!-- Right-aligned navigation links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="text-gray-100 hover:text-red-100">Home</a>
+                    <a href="/about" class="text-gray-100 hover:text-red-100">About Us</a>
+                    <a href="/book" class="text-gray-100 hover:text-red-100">Books Available</a>
+                    <a href="/addbook" class="text-gray-100 hover:text-red-100">Add Books</a>
+                    <a href="/shop" class="text-gray-100 hover:text-red-100">Shop</a>
+
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-btn"
+                        class="text-gray-100 hover:text-red-100 focus:outline-none focus:text-red-100">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="bg-rose-500 text-center md:hidden hidden fixed w-full z-30">
+            <a href="/" class="block text-gray-100 hover:text-red-100 px-4 py-2">Home</a>
+            <a href="/about" class="block text-gray-100 hover:text-red-100 px-4 py-2">About Us</a>
+            <a href="/book" class="block text-gray-100 hover:text-red-100 px-4 py-2">Books Available</a>
+            <a href="/addbook" class="block text-gray-100 hover:text-red-100 px-4 py-2">Add Books</a>
+            <a href="/shop" class="block text-gray-100 hover:text-red-100 px-4 py-2">Shop</a>
+        </div>
+    </nav>
+
+        
+
+    <div class="relative bg-rose-600 text-white">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('./assets/bg.jpg');"></div>
+        <!-- Overlay -->
+        <div class="relative z-10 bg-opacity-75 bg-black flex items-center justify-center h-screen">
+            <div class="text-center px-2">
+                <h1 class="text-4xl font-bold">EpicReads</h1>
+                <p class="mt-4 text-lg">Discover a world of books and knowledge.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-12">
+        <div class="container mx-auto px-5">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-rose-600 mb-6">About Us</h2>
+                <p class="text-lg text-gray-800 mb-8">
+                    At EpicReads, we are passionate about books. We strive to provide a wide selection of books across various genres
+                    to cater to every reader's taste. Our collection includes both popular bestsellers and hidden gems, ensuring there's
+                    something for everyone.
+                </p>
+                <p class="text-lg text-gray-800 mb-5">
+                    We encourage our community to contribute by adding books to our collection. Whether you're an author, publisher,
+                    or passionate reader, you can help us expand our library and make it even more diverse.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold text-violet-700 mb-6">Books Available</h2>
+                <p class="text-lg text-gray-800">
+                    Explore our curated collection of books from various genres. Discover new reads and old favorites that
+                    suit your taste.
+                </p>
+            </div>
+    
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <!-- Book Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-70 w-full overflow-hidden">
+                    <img src="./assets/book3.jpg" alt="Book 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2"> War and Peace</h3>
+                        <p class="text-gray-600 mb-2">Leo Tolstoy</p>
+                    </div>
+                </div>
+    
+                <!-- Book Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-70 w-full overflow-hidden">
+                    <img src="./assets/book4.jpg" alt="Book 2" class="w-full h-full object-cover">
+                </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Anna Karenina</h3>
+                        <p class="text-gray-600 mb-2">Leo Tolstoy</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-70 w-full overflow-hidden">
+                    <img src="./assets/book5.jpg" alt="Book 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Hamlet</h3>
+                        <p class="text-gray-600 mb-2">William Shakespeare</p>
+                    </div>
+                </div>
+    
+                <!-- Book Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-70 w-full overflow-hidden">
+                    <img src="./assets/book6.jpg" alt="Book 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Madame Bovary</h3>
+                        <p class="text-gray-600 mb-2"> Gustave Flaubert</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-70 w-full overflow-hidden">
+                    <img src="./assets/book7.jpg" alt="Book 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">The Great Gatsby</h3>
+                        <p class="text-gray-600 mb-2">F. Scott Fitzgerald</p>
+                    </div>
+                </div>       
+            </div>
+            <div class="text-center mt-8">
+                <a href="/book"
+                    class="inline-block bg-violet-700 hover:bg-violet-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">Explore All Books</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-10 ">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold text-rose-600 mb-6">Add Books</h2>
+                <p class="text-gray-800">
+                    At EpicReads, we provide you with the opportunity to share your favorite books with our community. Whether you're an author, publisher, or an avid reader, you can easily add new titles to our collection. Help others discover the gems that you've found and contribute to a growing library of diverse and exciting reads.
+                </p>
+            </div>
+    
+            <div class="text-center mt-8">
+                <a href="/addbook" class="inline-block bg-rose-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">Add Books</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-10 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold text-violet-700 mb-6">Shop</h2>
+                <p class="text-gray-800">
+                    Welcome to the EpicReads Shop! Explore a curated selection of books handpicked for every reader. Whether you're looking for the latest bestseller or a classic gem, you'll find a variety of titles to choose from. Click the button below to start shopping and find your next great read.
+                </p>
+            </div>
+    
+            <div class="text-center mt-8">
+                <a href="/shop" class="inline-block bg-violet-700 hover:bg-violet-800 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-rose-600 text-white py-4">
+        <div class="container mx-auto text-center">
+          <p class="text-sm">EpicReads | All rights reserved.</p>
+          <p class="text-sm">Made with 🤍 by Neha</p>
+          <p class="text-sm">Contact: neha.k.thakor@gmail.com</p>
+        </div>
+      </footer>
+    
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden'); // Prevent scrolling when menu is open
+               
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

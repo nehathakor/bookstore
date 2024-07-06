@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EpicReads - Books Available</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        a {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50">
+    <nav class="bg-rose-600 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold text-gray-100">EpicReads</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="text-gray-100 hover:text-red-100">Home</a>
+                    <a href="/about" class="text-gray-100 hover:text-red-100">About Us</a>
+                    <a href="/books" class="text-gray-100 hover:text-red-100">Books Available</a>
+                    <a href="/addbook" class="text-gray-100 hover:text-red-100">Add Books</a>
+                    <a href="/shop" class="text-gray-100 hover:text-red-100">Shop</a>
+                    <a href="/contact" class="text-gray-100 hover:text-red-100">Contact Us</a>
+                    <a href="/login" class="text-gray-100 hover:text-red-100">Login</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-100 hover:text-red-100 focus:outline-none focus:text-red-100">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="bg-rose-500 text-center md:hidden hidden fixed w-full z-30">
+            <a href="/" class="block text-gray-100 hover:text-red-100 px-4 py-2">Home</a>
+            <a href="/about" class="block text-gray-100 hover:text-red-100 px-4 py-2">About Us</a>
+            <a href="/books" class="block text-gray-100 hover:text-red-100 px-4 py-2">Books Available</a>
+            <a href="/addbook" class="block text-gray-100 hover:text-red-100 px-4 py-2">Add Books</a>
+            <a href="/shop" class="block text-gray-100 hover:text-red-100 px-4 py-2">Shop</a>
+            <a href="/contact" class="block text-gray-100 hover:text-red-100 px-4 py-2">Contact Us</a>
+            <a href="/login" class="block text-gray-100 hover:text-red-100 px-4 py-2">Login</a>
+        </div>
+    </nav>
+    <section class="py-10">
+    <div class="container mx-auto px-4">
+    <div class="text-center">
+        <div class="overflow-hidden">
+            <div class="overflow-hidden">
+            <img src="<%= book.coverimage %>" alt="Book 1" class="mx-auto" height="150px" width="200px">
+            </div>
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800"><%= book.title %></h3>
+                <p class="text-lg text-gray-800 mb-5"><%= book.author %></p>
+                <p class="text-lg text-gray-800 mb-5">Price: ₹ <%= book.price %></p>
+                <p class="text-lg text-gray-800 mb-5"><%= book.description %></p>
+
+            </div>
+        </div>    
+    </div>
+    </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>

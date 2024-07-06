@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EpicReads - Books Available</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        a,form {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+  
+</head>
+
+<body class="bg-slate-50">
+    <nav class="bg-rose-600 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold text-gray-100">EpicReads</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="py-5">
+        <h2 class="text-3xl font-bold text-center py-8 mb-4 text-rose-600">Explore Books</h2>
+    <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+       <% book.forEach(item => { %>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="h-70 w-full overflow-hidden">
+            <img src="<%= item.coverimage %>" alt="Book 1" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800"><%= item.title %></h3>
+            </div>
+            <div class="flex justify-around mb-3">
+                <a href="/book/<%= item._id%>" class="text-gray-600 hover:text-red-600">More Detail</a>
+                <form id="payment-form-<%= item._id %>" action="/create-checkout-session" method="POST">
+                    <input type="hidden" name="amount" value="<%= item.price * 100 %>"> <!-- Convert price to cents -->
+                    <input type="hidden" name="description" value="<%= item.title %>">
+                    <button type="submit" class="stripe-button-custom text-gray-600 hover:text-red-600">
+                        Pay
+                    </button>
+                </form>
+            </div>
+        </div>    
+     <% }) %>  
+    </div>
+    </div>
+    </section>
+  
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const forms = document.querySelectorAll('form[action="/create-checkout-session"]');
+            forms.forEach(form => {
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const amount = formData.get('amount');
+                    const description = formData.get('description');
+    
+                    try {
+                        const response = await fetch('/create-checkout-session', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ amount, description }),
+                        });
+    
+                        const session = await response.json();
+    
+                        const stripe = Stripe('pk_test_51PYoe82K1SLOQ2Nqh4yTyjb087nrLNwzje5BkawAwGJ6x66BAUwDN7B9nISRebqHxToO2YBFnfhH7PVNvk67QbVt008KWzHytW'); 
+                        const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
+    
+                        if (error) {
+                            console.error(error.message);
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+    
+    
+</body>
+
+</html>

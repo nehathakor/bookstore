@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="output.css" rel="stylesheet">
+    <style>
+        h3{
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h2{
+            font-family: 'Poppins', sans-serif;
+        }
+        h1,
+        a {
+            font-family: 'Playfair Display', serif;
+        }
+.text-shadow {
+    text-shadow: 2px 2px 8px rgb(232, 13, 57);
+}
+</style>
+</head>
+<body  class="bg-gray-50 dark:bg-gray-900">
+    <!-- <h1>Login</h1>
+    <% if (error) { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %> -->
+    <!-- <form action="/auth/login" method="POST">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form> -->
+
+    <section>
+        <h1 class="text-2xl font-bold pt-12 text-center text-white text-shadow">EpicReads</h1>
+        <div class="flex flex-col items-center justify-center px-6 py-6 mx-auto md:h-screen lg:py-0">
+            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1 class="text-xl font-bold leading-tight tracking-tight text-center text-gray-900 md:text-2xl dark:text-white">
+                        Login
+                    </h1>
+                    <form class="space-y-4 md:space-y-6" action="/auth/login" method="POST">
+                        <div>
+                            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                            <input type="username" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="username" required="">
+                        </div>
+                       
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                        </div>
+                     
+                        <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Login</button>
+                        <p class="text-sm font-light text-gray-400 dark:text-gray-400">
+                            Don't have an account? <a href="/signup" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Signup here</a>
+                        </p>
+
+                        <% if (error) { %>
+                            <p class="text-center text-rose-400"><%= error %></p>
+                        <% } %>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </section>
+</body>
+</html>
+

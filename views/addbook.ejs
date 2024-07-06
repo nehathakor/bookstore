@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EpicReads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link href="output.css" rel="stylesheet">
+    <style>
+        p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 17px;
+        }
+
+        h3 {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1,
+        a {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="bg-rose-600 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Left-aligned brand name -->
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold text-gray-100">EpicReads</a>
+                </div>
+                <div class="md:flex space-x-8">
+                    <a href="/editbook" class="text-gray-100 hover:text-red-100">Edit Books</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-14">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-rose-600">📚Add Books</h2>
+            </div>
+        </div>
+    </section>
+    <% if (error) { %>
+        <p class="text-center text-rose-600 pb-5"><%= error %></p>
+    <% } %>
+
+    <form class="max-w-md mx-auto mb-10 px-4" action="/book" method="POST" enctype="multipart/form-data">
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="title" id="title"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-cyan-700 dark:border-gray-600 dark:focus:border-rose-500 focus:outline-none focus:ring-0 focus:border-rose-600 peer"
+                placeholder=" " required />
+            <label for="title"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-600 peer-focus:dark:text-rose-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter
+                Book title</label>
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="author" id="author"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-cyan-700 dark:border-gray-600 dark:focus:border-rose-500 focus:outline-none focus:ring-0 focus:border-rose-600 peer"
+                placeholder=" " required />
+            <label for="author"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-600 peer-focus:dark:text-rose-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter
+                Book author</label>
+        </div>
+
+        <div class="relative z-0 w-full mb-6 group">
+            <label for="coverImage" class="block text-sm text-gray-500 dark:text-gray-400">
+                Cover Image
+            </label>
+            <input type="file" name="coverimage" id="coverimage"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-cyan-700 dark:border-gray-600 dark:focus:border-rose-500 focus:outline-none focus:ring-0 focus:border-rose-600 peer" />
+        </div>
+        
+
+        <div class="relative z-0 w-full mb-5 group">
+            <input type="text" name="price" id="price"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-cyan-700 dark:border-gray-600 dark:focus:border-rose-500 focus:outline-none focus:ring-0 focus:border-rose-600 peer"
+                placeholder=" " required />
+            <label for="price"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-600 peer-focus:dark:text-rose-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter
+                Book price</label>
+        </div>
+
+        <div class="relative z-0 w-full mb-6 group">
+            <textarea name="description" id="description"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-cyan-700 dark:border-gray-600 dark:focus:border-rose-500 focus:outline-none focus:ring-0 focus:border-rose-600 peer"
+                placeholder=" " required></textarea>
+            <label for="description"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-rose-600 peer-focus:dark:text-rose-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter
+                Book description</label>
+        </div>
+        
+
+
+        <button type="submit"
+            class="text-white bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800">Submit</button>
+    </form>
+
+
+</body>
+
+</html>
+
