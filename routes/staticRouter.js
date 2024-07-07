@@ -43,10 +43,6 @@ router.get("/signup",(req,res)=>{
     res.render("signup")
 })
 
-router.get("/editbook",(req,res)=>{
-    res.render("editbook")
-})
-
 router.get("/edit/:id",async (req,res)=>{
     const book = await Book.findById(req.params.id)
     res.render("newedit",{book})
